@@ -45,7 +45,7 @@ class OrderShipped extends Mailable implements ShouldQueue
     public function content()
     {
         return new Content(
-            view: 'view.name',
+            view: 'view',
         );
     }
 

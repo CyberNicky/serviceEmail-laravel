@@ -2,6 +2,7 @@
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\EmailController;
 
 /*
 |--------------------------------------------------------------------------
@@ -20,7 +21,6 @@ Route::get('/mailable', function () {
     return new App\Mail\InvoicePaid($invoice);
 });
 
-Route::get('/sendMail', function () {
-    App\Http\Controllers\EmailController::store();
-
+Route::controller(EmailController::class)->group(function () {
+    Route::get('/sendEmail', 'store');
 });
