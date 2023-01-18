@@ -15,13 +15,12 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/mailable', function () {
-    $invoice = App\Models\Invoice::find(1);
+    $invoice = App\Mail\InvoicePaid::find(1);
  
     return new App\Mail\InvoicePaid($invoice);
 });
 
-Route::post('/EmailController', function () {
-    $invoice = App\Controllers\Http\EmailController::store();
- 
-    return new ($invoice);
+Route::get('/sendMail', function () {
+    App\Http\Controllers\EmailController::store();
+
 });
