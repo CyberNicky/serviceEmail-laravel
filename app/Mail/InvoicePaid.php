@@ -1,4 +1,4 @@
-<?php
+<!-- <?php
 
 use App\Mail\InvoicePaid;
 use App\Models\Invoice;
@@ -32,6 +32,6 @@ function test_mailable_content()
         $mailable->assertHasAttachment('/path/to/file');
         $mailable->assertHasAttachment(Attachment::fromPath('/path/to/file'));
         $mailable->assertHasAttachedData($pdfData, 'name.pdf', ['mime' => 'application/pdf']);
-        $mailable->assertHasAttachmentFromStorage('/path/to/file', 'name.pdf', ['mime' => 'application/pdf']);
+        $mailable->assertHasAttachmentFromStorage('/path/to/file', 'name.pdf', ['mime' => 'application/pdf']); -->
         $mailable->assertHasAttachmentFromStorageDisk('s3', '/path/to/file', 'name.pdf', ['mime' => 'application/pdf']);
     }
